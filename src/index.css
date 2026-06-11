@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .glow-cyan {
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.6), 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  .glow-gold {
+    text-shadow: 0 0 8px rgba(234, 179, 8, 0.6), 0 0 20px rgba(234, 179, 8, 0.3);
+  }
+  .glow-red {
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.7), 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+  .glow-green {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+  }
+  .glow-border-cyan {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+  }
+  .glow-border-gold {
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.5);
+  }
+}
+
+/* Animations fields */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
+  20%, 40%, 60%, 80% { transform: translateX(6px); }
+}
+
+@keyframes flash-red {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(239, 68, 68, 0.25); }
+}
+
+@keyframes flash-green {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(34, 197, 94, 0.2); }
+}
+
+@keyframes break-effect {
+  0% { filter: blur(0px) contrast(1); }
+  10% { filter: blur(1px) contrast(2) invert(0.1); }
+  20% { filter: blur(3px) contrast(1.5) invert(0.3); }
+  35% { filter: blur(0px) contrast(1.2); }
+  100% { filter: blur(0px) contrast(1); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.animate-flash-red {
+  animation: flash-red 0.5s ease-in-out;
+}
+
+.animate-flash-green {
+  animation: flash-green 0.5s ease-in-out;
+}
+
+.animate-break {
+  animation: break-effect 0.8s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Glassmorphism options */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-accent-cyan {
+  background: rgba(8, 47, 73, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.glass-panel-accent-gold {
+  background: rgba(69, 39, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(234, 179, 8, 0.25);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* High-contrast Light Mode Override Rules */
+.theme-light {
+  background-color: #f8fafc !important; /* Slate 50 styling */
+  color: #0f172a !important; /* Slate 900 high contrast */
+}
+
+/* Scrollbar */
+.theme-light ::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+}
+.theme-light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+}
+.theme-light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
+}
+
+/* Headers & Banners */
+.theme-light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Glass Panels & Cards */
+.theme-light .glass-panel {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+
+.theme-light .bg-slate-900 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light .bg-slate-950 {
+  background-color: #f1f5f9 !important; /* Slate 100 super clean */
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light .border-slate-800,
+.theme-light .border-slate-850,
+.theme-light .border-slate-900 {
+  border-color: #cbd5e1 !important;
+}
+
+/* ACCENTS (preserving positive vibes but adjusting brightness) */
+.theme-light .glass-panel-accent-cyan {
+  background: #ecfeff !important; /* Cyan 50 */
+  border-color: #06b6d4 !important;
+}
+
+.theme-light .glass-panel-accent-gold {
+  background: #fef9c3 !important; /* Yellow 100 */
+  border-color: #eab308 !important;
+}
+
+/* Text Overrides - High contrast */
+.theme-light .text-slate-100 { color: #0f172a !important; }
+.theme-light .text-slate-200 { color: #1e293b !important; }
+.theme-light .text-slate-300 { color: #334155 !important; }
+.theme-light .text-slate-400 { color: #475569 !important; }
+.theme-light .text-slate-500 { color: #64748b !important; }
+
+.theme-light .text-white { color: #0f172a !important; }
+.theme-light .text-cyan-400 { color: #0891b2 !important; } /* Darker cyan for readability */
+.theme-light .text-cyan-300 { color: #0891b2 !important; }
+.theme-light .text-emerald-400 { color: #15803d !important; } /* Darker green */
+.theme-light .text-amber-400 { color: #b45309 !important; } /* Darker yellow/amber */
+.theme-light .text-yellow-400 { color: #a16207 !important; }
+.theme-light .text-rose-400 { color: #b91c1c !important; }
+.theme-light .text-indigo-400 { color: #4338ca !important; }
+.theme-light .text-purple-400 { color: #6d28d9 !important; }
+.theme-light .text-rose-300 { color: #be123c !important; }
+.theme-light .text-indigo-300 { color: #312e81 !important; }
+
+/* Buttons & Controls */
+.theme-light .bg-slate-950.p-1\.5 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Ensure the button highlights look outstanding */
+.theme-light .bg-cyan-500 {
+  background-color: #0891b2 !important;
+  color: #ffffff !important;
+}
+.theme-light .text-slate-950 {
+  color: #ffffff !important;
+}
+
+/* Fix any labels in option switches and game selectors */
+.theme-light label {
+  color: #1e293b !important;
+}
+
+/* Sub-panels inside questions and explanation sheets */
+.theme-light .bg-slate-900\/40,
+.theme-light .bg-slate-900\/50,
+.theme-light .bg-slate-950\/40 {
+  background-color: #f8fafc !important;
+}
+.theme-light .bg-indigo-950\/20 {
+  background-color: #e0e7ff !important;
+  border-color: #818cf8 !important;
+  color: #1e1b4b !important;
+}
+
+/* Option choices */
+.theme-light .divide-slate-800\/60 > * + * {
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light .border-cyan-500\/30 {
+  border-color: #06b6d4 !important;
+}
+.theme-light .bg-cyan-950\/20 {
+  background-color: #ecfeff !important;
+}
+
+/* Active buttons, inputs */
+.theme-light input[type="text"],
+.theme-light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Other borders */
+.theme-light .border-slate-850 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Correct green / incorrect red visual feedbacks */
+.theme-light .bg-emerald-950\/30 {
+  background-color: #dcfce7 !important;
+  border-color: #22c55e !important;
+}
+.theme-light .bg-rose-950\/30 {
+  background-color: #fee2e2 !important;
+  border-color: #ef4444 !important;
+}
+

@@ -1,0 +1,1172 @@
+{
+  "examName": "BCS / Bank / Govt Combined Job Exam",
+  "subjects": [
+    {
+      "subjectName": "বাংলা ভাষা ও সাহিত্য",
+      "totalMarks": 30,
+      "topics": [
+        {
+          "topicName": "বাংলা ভাষা (১৫ নম্বর)",
+          "weight": 15,
+          "subtopics": [
+            {
+              "subtopicName": "প্রয়োগ-অপপ্রয়োগ, বানান ও বাক্য শুদ্ধি",
+              "microSkills": [
+                {
+                  "skillId": "bng_lang_rules_natwa_shatwa",
+                  "skillName": "ণ-ত্ব ও ষ-ত্ব বিধানের নিয়ম ও ব্যতিক্রম",
+                  "description": "তৎসম ও অ-তৎসম শব্দের বানানে 'ণ' এবং 'ষ' ব্যবহারের ব্যাকরণিক সূত্র ও অপপ্রয়োগ নিরূপণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lang_sentence_redundancy",
+                  "skillName": "বাক্যের বাহুল্য দোষ ও গুরুচণ্ডালী দোষ সংশোধন",
+                  "description": "উভয় বা অতিরিক্ত শব্দ ব্যবহারে বাক্য অশুদ্ধ হওয়া এবং সাধু-চলিতের মিশ্রণজনিত ক্রটি চিহ্নিতকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lang_spelling_bangla_academy",
+                  "skillName": "বাংলা একাডেমী প্রমিত বানান নিয়ম",
+                  "description": "তৎসম, অ-তৎসম, বিদেশী ও সন্ধি সাধিত শব্দের প্রমিত বানানের নিয়ম প্রয়োগ ও ভুল সংশোধন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "bng_lang_sentence_concord_gender",
+                  "skillName": "লিঙ্গান্তর ও পদ পরিবর্তন অসঙ্গতি দূরীকরণ",
+                  "description": "বাক্যে লিঙ্গ ও পদের অসমঞ্জস ব্যবহারের কারণে সৃষ্ট ব্যাকরণিক ত্রুটি সংশোধন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "ধ্বনি ও বর্ণ",
+              "microSkills": [
+                {
+                  "skillId": "bng_lang_phonology_articulation",
+                  "skillName": "ধ্বনির উচ্চারণ স্থান ও শ্রেণীকরণ",
+                  "description": "কণ্ঠ্য, তালব্য, মূর্ধন্য, দন্ত্য ও ওষ্ঠ্য বর্ণের অবস্থান এবং অল্পপ্রাণ-মহাপ্রাণ ও ঘোষ-অঘোষ ধ্বনি শনাক্তকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                },
+                {
+                  "skillId": "bng_lang_phonology_shifts",
+                  "skillName": "ধ্বনি পরিবর্তনের নানাবিধ প্রক্রিয়া",
+                  "description": "অপিনিহিতি, অভিশ্রুতি, অসমীকরণ, সমীকরণ, স্বরাগম, স্বরভক্তি এবং ব্যঞ্জনচ্যুতির রূপান্তর শনাক্তকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "শব্দ ও পদ",
+              "microSkills": [
+                {
+                  "skillId": "bng_lang_word_origin",
+                  "skillName": "উৎসগত ও গঠনগত শব্দের বিভাজন",
+                  "description": "তৎসম, তদ্ভব, দেশী ও বিদেশী এবং রূঢ়ি, যোগরূঢ় ও যৌগিক শব্দের উৎপত্তি বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lang_parts_of_speech_types",
+                  "skillName": "পদ প্রকরণ ও ক্রিয়া পদের রূপান্তর",
+                  "description": "বিশেষ্য, বিশেষণ, সর্বনাম ও অব্যয়ের বিবিধ প্রকার এবং সমাপিকা-অসমাপিকা ক্রিয়ার ব্যবহার।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "প্রত্যয়, সন্ধি ও সমাস",
+              "microSkills": [
+                {
+                  "skillId": "bng_lang_sandhi_assimilation",
+                  "skillName": "স্বর, ব্যঞ্জন ও বিসর্গ সন্ধি বিচ্ছেদ",
+                  "description": "সন্ধি ঘটিত ব্যাকরণিক সূত্রাবলী এবং নিপাতনে সিদ্ধ সন্ধির নিয়মের ব্যতিক্রম শনাক্তকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lang_samash_formation",
+                  "skillName": "সমাসের প্রকারভেদ ও ব্যাসবাক্য নির্ণয়",
+                  "description": "দ্বন্দ্ব, কর্মধারয়, তৎপুরুষ, বহুব্রীহি, দ্বিগু ও অব্যয়ীভাব সমাসের অন্তর্গত অর্থ প্রাধান্য নিরূপণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "bng_lang_suffix_kritt_taddhita",
+                  "skillName": "কৃৎ ও তদ্ধিত প্রত্যয় সাধিত শব্দ বিশ্লেষণ",
+                  "description": "ধাতু এবং প্রাতিপদিকের সাথে সংস্কৃত, বাংলা ও বিদেশী প্রত্যয়ের সংযোগ সূত্র ডিকোড করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "পরিভাষা, সমার্থক ও বিপরীতার্থক শব্দ",
+              "microSkills": [
+                {
+                  "skillId": "bng_lang_terminology_english_bengali",
+                  "skillName": "প্রশাসনিক ও একাডেমিক ইংরেজি শব্দের অনুবাদ",
+                  "description": "দাপ্তরিক, প্রাতিষ্ঠানিক ও বৈজ্ঞানিক পরিভাষার সঠিক প্রমিত বাংলা পরিভাষা চয়ন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lang_synonyms_antonyms_literary",
+                  "skillName": "সাহিত্যিক সমার্থক ও বিপরীতার্থক শব্দ চয়ন",
+                  "description": "তৎসম ও সাধারণ বাংলা শব্দের বিভিন্ন সমার্থবাচক ও বিপরীতরূপ শনাক্তকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "বাংলা সাহিত্য (১৫ নম্বর)",
+          "weight": 15,
+          "subtopics": [
+            {
+              "subtopicName": "প্রাচীন ও মধ্যযুগ (০৫ নম্বর)",
+              "microSkills": [
+                {
+                  "skillId": "bng_lit_ancient_charyapada",
+                  "skillName": "চর্যাপদের ইতিহাস, পদকর্তা ও ভাষা",
+                  "description": "আবিষ্কারের ইতিহাস, তিব্বতী অনুবাদ, সাঁঝা ভাষা এবং হরপ্রসাদ শাস্ত্রীর সংকলন উপাত্ত বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lit_medieval_sri_krishna",
+                  "skillName": "শ্রীকৃষ্ণকীর্তন কাব্য ও বড়ু চণ্ডীদাস",
+                  "description": "আবিষ্কার, খণ্ডবিন্যাস এবং মধ্যযুগীয় রাধা-কৃষ্ণের প্রণয়লীলাভিত্তিক ভাষা বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lit_medieval_mangalkavya_currents",
+                  "skillName": "মঙ্গলকাব্যের ধারা ও রূপকারগণ",
+                  "description": "মনসামঙ্গল, চণ্ডীমঙ্গল ও অন্নদামঙ্গলের কবি, চরিত্র ও সভাকবিদের বিস্তারিত জীবনী।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "bng_lit_medieval_arakan_court",
+                  "skillName": "আরাকান রাজসভা ও মুসলমান সাহিত্যিক অবদান",
+                  "description": "আলাওল (পদ্মাবতী), দৌলত কাজী প্রমুখের অনুবাদ এবং মধ্যযুগীয় মানবতাবাদী প্রণয়কাহিনীর ধারা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "আধুনিক যুগ (১৮০০-বর্তমান পর্যন্ত) (১০ নম্বর)",
+              "microSkills": [
+                {
+                  "skillId": "bng_lit_modern_fort_william",
+                  "skillName": "ফোর্ট উইলিয়াম কলেজ ও গদ্যের প্রথম যুগ",
+                  "description": "১৮০০ সালের পর বাংলা গদ্য সাহিত্যের উন্মেষ, পণ্ডিতদের অনুবাদ ও প্রথম সংবাদপত্রসমূহ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bng_lit_modern_rabindranath_nazul",
+                  "skillName": "রবীন্দ্রনাথ ও কাজী নজরুল সাহিত্যকর্ম",
+                  "description": "নোবেল জয়ী কাব্যগ্রন্থসমূহ, উপন্যাস, নাটক, গানের সংকলন ও বিদ্রোহী চরিত্রের সাহিত্য চেতনা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "bng_lit_modern_major_novelists",
+                  "skillName": "বঙ্কিম, শরৎচন্দ্র ও মাইকেল মধুসূদন দত্ত",
+                  "description": "বাংলা সাহিত্যের প্রথম উপন্যাস, সার্থক মহাকাব্য ও ট্র্যাজেডি নাটকের কালানুক্রমিক ও ঐতিহাসিক বিবর্তন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "bng_lit_modern_liberation_works",
+                  "skillName": "১৯৭১ এর মুক্তিযুদ্ধভিত্তিক সাহিত্য নিদর্শন",
+                  "description": "মুক্তিযুদ্ধ বিষয়ক উপন্যাস, নাটক, প্রবন্ধ ও সাময়িক গ্রন্থের রচয়িতা ও চরিত্র বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "English Language and Literature",
+      "totalMarks": 30,
+      "topics": [
+        {
+          "topicName": "Language (15 Marks)",
+          "weight": 15,
+          "subtopics": [
+            {
+              "subtopicName": "Parts of Speech",
+              "microSkills": [
+                {
+                  "skillId": "eng_lang_noun_determiners_gender",
+                  "skillName": "Nouns, Countability, Determiners and Cases",
+                  "description": "Sizing countable/uncountable nouns, matching quantifiers, active pronoun casing, and gender/number conversions.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "eng_lang_verb_finite_nonfinite_modals",
+                  "skillName": "Finite vs. Non-Finite Verbs, Gerunds & Participles",
+                  "description": "Decoupling transitive/intransitive, linking verbs, identifying gerund vs. participle vs. infinitive and modal applications.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "eng_lang_preposition_fixed_verb",
+                  "skillName": "Appropriate and Fixed Prepositions",
+                  "description": "Selecting correct collocations and prepositions of agent, instrument, place and movement.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "Idioms & Phrases",
+              "microSkills": [
+                {
+                  "skillId": "eng_lang_idioms_meaning_derivation",
+                  "skillName": "Meaning of Complex Phrases & Idiomatic Expressions",
+                  "description": "Factual comprehension of standard exam idioms, and contextual usage matches.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                },
+                {
+                  "skillId": "eng_lang_phrases_kinds_identification",
+                  "skillName": "Syntactic Identification of Phrase Kinds",
+                  "description": "Differentiating Noun phrases, Adjective phrases, and Adverbial phrases structurally.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "Clauses",
+              "microSkills": [
+                {
+                  "skillId": "eng_lang_clauses_noun_adj_adv",
+                  "skillName": "Noun, Adjective, and Adverbial Clauses",
+                  "description": "Demarcating subordinating clauses and recognizing their function relative to main clauses.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "Corrections & Concord",
+              "microSkills": [
+                {
+                  "skillId": "eng_lang_corrections_subject_verb_agreement",
+                  "skillName": "Subject-Verb Agreement and Concord Rules",
+                  "description": "Applying S-V agreement rule overrides (e.g., collective nouns, correlatives, intervening clauses).",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "eng_lang_corrections_tense_conditional_seq",
+                  "skillName": "Sequence of Tenses and Conditional Rules",
+                  "description": "Configuring correct perfective timelines and applying 1st, 2nd, 3rd and mixed conditional frames.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "Sentences & Transformations",
+              "microSkills": [
+                {
+                  "skillId": "eng_lang_sentences_simple_complex_compound",
+                  "skillName": "Simple, Compound, and Complex Transformations",
+                  "description": "Rewriting sentence levels preserving semantics using subordination and coordination tools.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "eng_lang_voice_active_passive_exceptional",
+                  "skillName": "Active and Passive Voice Transition Laws",
+                  "description": "Adapting voice configurations for commands, quasi-passives, cognate objects and hidden buy-agents.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "eng_lang_degree_comparative_superlative",
+                  "skillName": "Degree of Positive, Comparative, and Superlative",
+                  "description": "Scaling modifiers across comparison levels using 'no other', 'very few' templates.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                }
+              ]
+            },
+            {
+              "subtopicName": "Words & Composition",
+              "microSkills": [
+                {
+                  "skillId": "eng_lang_vocabulary_synonyms_antonyms",
+                  "skillName": "Exam Vocabulary: Synonyms & Antonyms",
+                  "description": "Mapping highly competitive Latinate, French and Greek origin loan words in English sentences.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "eng_lang_word_formation_prefixes_suffixes",
+                  "skillName": "Morphology of Prefix, Suffix, and Spelling",
+                  "description": "Generating new lexical categories and correcting tricky orthographical misspelling traps.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "Literature (15 Marks)",
+          "weight": 15,
+          "subtopics": [
+            {
+              "subtopicName": "English Literature: Elizabethan to Modern Periods",
+              "microSkills": [
+                {
+                  "skillId": "eng_lit_periods_elizabethan_jacobian",
+                  "skillName": "Elizabethan, Jacobean & Metaphysical Eras",
+                  "description": "Identifying works of Shakespeare, Christopher Marlowe, John Donne and Ben Jonson.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "eng_lit_periods_neoclassical_romantic",
+                  "skillName": "Neoclassical & Romantic Movements",
+                  "description": "Mapping poets of nature and novelists (Wordsworth, Coleridge, Keats, Shelley, Jane Austen, Alexander Pope).",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "eng_lit_periods_victorian_modern_21st",
+                  "skillName": "Victorian & Modernist Movements to Current Century",
+                  "description": "Connecting Charles Dickens, G.B. Shaw, T.S. Eliot, George Orwell and contemporary Booker winners to their works.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "Quotations & Critical Analysis",
+              "microSkills": [
+                {
+                  "skillId": "eng_lit_famous_quotes_dramas_poetry",
+                  "skillName": "Famous Drama, Poetry, and Fiction Quotations",
+                  "description": "Attribuition of famous classic quotes to their original authors, characters, or specific scenes.",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "বাংলাদেশ বিষয়াবলি",
+      "totalMarks": 25,
+      "topics": [
+        {
+          "topicName": "বাংলাদেশের জাতীয় বিষয়াবলি: কৃষ্টি, ইতিহাস ও মুক্তিযুদ্ধ (০৬ নম্বর)",
+          "weight": 6,
+          "subtopics": [
+            {
+              "subtopicName": "প্রাচীনকাল হতে সম-সাময়িক কালের ইতিহাস",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_history_ancient_janapadas",
+                  "skillName": "প্রাচীন জনপদ ও ভূ-তাত্ত্বিক গঠন কাঠামো",
+                  "description": "পুন্ড্রবর্ধন, বঙ্গ, হরিকেল, সমতট, চন্দ্র ও সেন রাজবংশের অবস্থান, রাজধানী ও প্রত্নতাত্ত্বিক গুরুত্ব নির্ণয়।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bd_aff_history_partition_to_language_movement",
+                  "skillName": "বঙ্গভঙ্গ, দেশভাগ ও ১৯৫২ এর ভাষা আন্দোলন",
+                  "description": "১৯০৫ সালের বঙ্গভঙ্গ পরিক্রমা, লাহোর প্রস্তাব এবং রাষ্ট্রভাষা সংগ্রাম পরিষদের ধারাবাহিক ইতিহাস বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bd_aff_history_six_points_to_elections",
+                  "skillName": "ছয় দফা কর্মসূচি, '৬৯ এর গণঅভ্যুত্থান ও '৭০ এর নির্বাচন",
+                  "description": "বাঙালির স্বাধিকার আন্দোলনের ৬-দफा আইন সূচী, আগরতলা মামলার গুরুত্ব এবং ১৯৭০ সাধারণ নির্বাচন উপাত্ত।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "স্বাধীনতা সংগ্রাম ও মহান মুক্তিযুদ্ধের রণকৌশল",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_war_mujibnagar_government",
+                  "skillName": "মুজিবনগর সরকার গঠন ও রণাঙ্গন সেক্টর বিন্যাস",
+                  "description": "১০ এপ্রিল ১৯৭১ এর স্বাধীনতা ঘোষণা, ১৭ এপ্রিল মন্ত্রিসভার শপথ, এবং ১১টি সামরিক সেক্টরের সীমারেখা মূল্যায়ন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bd_aff_war_tactics_surrender_superpowers",
+                  "skillName": "যুদ্ধের রণকৌশল, পাকবাহিনীর আত্মসমর্পণ ও শক্তিদের ভূমিকা",
+                  "description": "অপারেশন জ্যাকপট, ক্র্যাক প্লাটুন অবদান, পরাশক্তিদের জাতিসংঘ ভেটো সমীকরণ এবং পাকিস্তানের নিঃশর্ত আত্মসমর্পণ দলিল।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "কৃষিজ সম্পদ ও জনসংখ্যা (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "কৃষিজ সম্পদ ও খাদ্য ব্যবস্থাপনা",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_agri_cropping_high_yield",
+                  "skillName": "উচ্চফলনশীল শস্যের জাত ও ফসলের বণ্টন",
+                  "description": "BRRI উদ্ভাবিত ধানের উন্নত ও জলবায়ু সহনশীল জাত, অর্থকরী ফসল এবং খাদ্য উৎপাদনে স্বয়ংসম্পূর্ণতা সূচক।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                }
+              ]
+            },
+            {
+              "subtopicName": "জনসংখ্যা ও ক্ষুদ্র নৃগোষ্ঠী সংক্রান্ত বিষয়াদি",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_pop_census_indigenous_tribes",
+                  "skillName": "জনশুমারি সূচক ও ক্ষুদ্র নৃগোষ্ঠীর সংস্কৃতি ও আবাসন",
+                  "description": "সর্বশেষ জনমিতিক ডাটা বিশ্লেষণ এবং চাকমা, মারমা, সাঁওতাল, গারো সম্প্রদায়ের আদি উৎসব, কৃষ্টি ও ভাষা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "অর্থনীতি, শিল্প ও বাণিজ্য (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "উন্নয়ন পরিকল্পনা ও অর্থনৈতিক সূচক",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_econ_five_year_plan_sectors",
+                  "skillName": "পঞ্চবার্ষিক পরিকল্পনা, জিডিপি ও বাজেট এডিপি",
+                  "description": "শতবর্ষী ডেল্টা প্ল্যান ২১০০, জিডিপিতে ৩টি মূল খাতের অবদান এবং বার্ষিক উন্নয়ন কর্মসূচির ব্যয়নীতি।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "শিল্পখাত ও আমদানি-রপ্তানি বাণিজ্য",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_trade_rmg_epz_remittance",
+                  "skillName": "গার্মেন্টস শিল্প, ইপিজেড মানচিত্র ও ব্যাংক-বীমা নীতি",
+                  "description": "তৈরি পোশাক শিল্পের কাঁচামাল যোগান, ব্যাংক রেট নির্ধারণ নীতি, রেমিট্যান্স গতিপথ এবং বৈদেশিক মুদ্রার রিজার্ভ গণনা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "সংবিধান ও রাষ্ট্র পরিচালনানীতি (০৩ নম্বর)",
+          "weight": 3,
+          "subtopics": [
+            {
+              "subtopicName": "সংবিধানের মূলধারা ও সংশোধনীসমূহ",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_const_structure_fundamental_rights",
+                  "skillName": "রাষ্ট্র পরিচালনার মূলনীতি ও মৌলিক অধিকারের অনুচ্ছেদসমূহ",
+                  "description": "সংবিধানের ৩য় ভাগের মৌলিক অধিকারসমূহ (অনুচ্ছেদ ২৭-৪৪), জরুরি অবস্থা জারির ধারা ও মূলনীতি ডিক্রিশন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "bd_aff_const_amendments_historical_context",
+                  "skillName": "সংবিধান সংশোধন আইনের ধারা মূল্যায়ন",
+                  "description": "১ম থেকে ১৭তম সংশোধন বিলের ইতিহাস এবং তত্ত্বাবধায়ক সরকার বাতিল রুলিংস সংক্রান্ত আইনি জট খোলা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "সরকার ও রাজনৈতিক ব্যবস্থা (০৮ নম্বর)",
+          "weight": 8,
+          "subtopics": [
+            {
+              "subtopicName": "আইন, শাসন ও বিচার বিভাগসমূহ",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_govt_organs_authority",
+                  "skillName": "সংসদীয় আইন প্রণয়ন ও প্রশাসনিক স্তর পরিকাঠামো",
+                  "description": "রাষ্ট্রপতির বিশেষ অধ্যাদেশ ক্ষমতা, স্পিকারের রুলিং আইন এবং বিচার বিভাগ স্বাধীনতা পৃথকীকরণ নির্দেশিকা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "bd_aff_govt_local_governance",
+                  "skillName": "স্থানীয় সরকার কাঠামো এবং প্রশাসনিক সংস্কার নীতি",
+                  "description": "জেলা, উপজেলা ও ইউনিয়ন পরিষদের তিন-স্তরভিত্তিক স্বায়ত্তশাসন সংস্কারের আইনানুগ বিধান ও কর আদায় ক্ষমতা।",
+                  "examRelevance": "medium",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "জাতীয় বিষয়াদি, বিশিষ্ট ব্যক্তিত্ব ও অর্জন",
+              "microSkills": [
+                {
+                  "skillId": "bd_aff_nat_awards_sports_media",
+                  "skillName": "জাতীয় পুরস্কার, বিশিষ্ট ব্যক্তিত্ব ও ক্রীড়া অর্জন",
+                  "description": "স্বাধীনতা পদক, একুশে পদক অর্জনকারী ঐতিহাসিক ব্যক্তিগণ, ইউনেস্কো হেরিটেজ কৃষ্টিসমূহ এবং বাংলাদেশের ওয়ানডে ও টেস্ট ক্রিকেটের মাইলফলক।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "আন্তর্জাতিক বিষয়াবলি",
+      "totalMarks": 25,
+      "topics": [
+        {
+          "topicName": "বৈশ্বিক ইতিহাস, আঞ্চলিক ও আন্তর্জাতিক ব্যবস্থা, ভূ-রাজনীতি (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "বিশ্ব যুদ্ধ ও ভূ-কৌশলগত প্রণালীসমূহ",
+              "microSkills": [
+                {
+                  "skillId": "int_aff_history_wars_cold_war",
+                  "skillName": "১ম ও ২য় বিশ্বযুদ্ধ সংশ্লিষ্ট রাজনৈতিক চুক্তি ও স্নায়ুযুদ্ধ",
+                  "description": "ভার্সাই চুক্তি, ইয়াল্টা সম্মিলন, ন্যাটো বনাম ওয়ারশ জোটের উত্থান ও কিউবা ক্ষেপণাস্ত্র সংকটের ভূ-রাজনীতি।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "int_aff_geo_choke_points_channels",
+                  "skillName": "কৌশলগত জলপথ, সামুদ্রিক প্রণালী ও গভীর ভূ-রাজনীতি",
+                  "description": "মালাক্কা, হরমূজ, বাবেল মান্দেব প্রণালী, ভূমধ্যসাগরীয় বাণিজ্য অক্ষ ও কৌশলগত দ্বীপ মালার প্রতিরক্ষাব্যবস্থা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "আন্তর্জাতিক নিরাপত্তা ও ক্ষমতা সম্পর্ক (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "সামরিক নিরাপত্তা ও নিরস্ত্রীকরণ চুক্তি",
+              "microSkills": [
+                {
+                  "skillId": "int_aff_sec_treaties_disarmament",
+                  "skillName": "পারমাণবিক শক্তি চুক্তিসমূহ (NPT, CTBT, START)",
+                  "description": " disarmament treaties, IAEA পারমাণবিক নজরদারী এখতিয়ার এবং কৌশলগত আইসিবিএম প্রযুক্তিসম্পন্ন দেশের মানচিত্র।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "সাম্প্রতিক ঘটনাপ্রবাহ, সংঘাত ও আন্তর্জাতিক পরিবেশ (১০ নম্বর)",
+          "weight": 10,
+          "subtopics": [
+            {
+              "subtopicName": "চলমান বৈশ্বিক সংঘাত ও সীমান্ত বিরোধ",
+              "microSkills": [
+                {
+                  "skillId": "int_aff_curr_borders_disputes",
+                  "skillName": "সীমারেখা, ছিটমহল দ্বন্দ্ব ও দ্বিপক্ষীয় সীমান্ত রেখা",
+                  "description": "লাইন অব কন্ট্রোল (LoC), ৩-বিঘা করিডোর, ডুরান্ড লাইন, এবং চলমান মধ্যপ্রাচ্য ভূখণ্ড বিরোধীয় জটিল সূত্র।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "আন্তর্জাতিক পরিবেশগত ইস্যু ও জলবায়ু কূটনীতি",
+              "microSkills": [
+                {
+                  "skillId": "int_aff_env_kyoto_paris_agreements",
+                  "skillName": "কিয়োটো প্রোটোকল, প্যারিস জলবায়ু চুক্তি ও কপ (COP) শীর্ষ সভা",
+                  "description": "কার্বন ক্রেডিট পলিসি হিসাব, গ্রীন ক্লাইমেট ফান্ডের অর্থ বিতরণ ও বৈশ্বিক উষ্ণতা হ্রাসের আইনি কাঠামো।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "সংগঠনসমূহ এবং অর্থনৈতিক প্রতিষ্ঠানসমূহ (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "জাতিসংঘ পরিবার এবং বৈশ্বিক জোট",
+              "microSkills": [
+                {
+                  "skillId": "int_aff_org_un_veto_departments",
+                  "skillName": "জাতিসংঘ সাধারণ পরিষদ ও নিরাপত্তা পরিষদের ভেটো সমীকরণ",
+                  "description": "স্থায়ী ৫ রাষ্ট্র ভেটো ডিক্রিশন, ICJ ও ICC অপরাধ ট্রাইব্যুনাল বিচারিক ক্ষমতা ধারা ও সদর দপ্তর কার্যাবলী।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "int_aff_org_bretton_woods_institutions",
+                  "skillName": "ব্রেটোন উডস জোট (IMF & World Bank) ও আঞ্চলিক ব্লক",
+                  "description": "এসডিআর (SDR) কারেন্সি ঝুড়ির হার এবং এডিবি, এআইআইবি, ব্রিকস (BRICS), এবং ইইউ কাস্টমস ইউনিয়ন বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "ভূগোল (বাংলাদেশ ও বিশ্ব), পরিবেশ ও দুর্যোগ ব্যবস্থাপনা",
+      "totalMarks": 10,
+      "topics": [
+        {
+          "topicName": "ভৌগোলিক অবস্থান, সম্পদের বণ্টন ও পরিবেশ (০৬ নম্বর)",
+          "weight": 6,
+          "subtopics": [
+            {
+              "subtopicName": "সীমানা, অঞ্চলভিত্তিক ভৌত ভূচিত্র ও ভূ-রাজনীতি",
+              "microSkills": [
+                {
+                  "skillId": "geo_bd_topography_hills_terraces",
+                  "skillName": "টারশিয়ারি পাহাড় ও প্লাইস্টোসিন যুগের সোপান ভূমি",
+                  "description": "লালমাই পাহাড়, বরেন্দ্র ও ভাওয়ালের গড় মাটির চরিত্র বৈশিষ্ট্য এবং সুন্দরবনের মোহনা সংলগ্ন ম্যানগ্রোভ ভূখণ্ড।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "geo_bd_borders_maritime_economic_zones",
+                  "skillName": "সীমানা নির্ধারণী ছিটমহল ও সমুদ্রসীমার আইনি যুদ্ধ বিবাদ",
+                  "description": "মিয়ানমার ও ভারতের সাথে সমুদ্র অর্থনৈতিক সীমান্ত রুলিংস (ITLOS রায়) ও ছিটমহল বিনিময় চুক্তি সীমানা রেখা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "প্রাকৃতিক খনিজ সম্পদের ভৌগোলিক বণ্টন",
+              "microSkills": [
+                {
+                  "skillId": "geo_bd_mineral_gas_deposits",
+                  "skillName": "অন-শোর এবং অফ-শোর তেল ও গ্যাস ফিল্ডস ম্যাপিং",
+                  "description": "বাংলাদেশের কয়লা, কঠিন শিলা, সিলিকা বালুর অবস্থান ও গ্যাস ক্ষেত্রসমূহের উত্তোলনযোগ্য মজুদ সূচক।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "জলবায়ু পরিবর্তন ও দুর্যোগ ব্যবস্থাপনা (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "জলবায়ু নিয়ামক ও স্থানীয় সেক্টরভিত্তিক পরিবেশগত প্রভাব",
+              "microSkills": [
+                {
+                  "skillId": "geo_env_monsoon_cyclones_el_nino",
+                  "skillName": "মৌসুমি জলবায়ুর ঘূর্ণিপাক এবং এল নিনো/লা নিনা মেকানিজম",
+                  "description": "কালবৈশাখী ঝড় সৃষ্টি এবং প্রশান্ত মহাসাগরীয় বায়ু প্রবাহ দ্বারা বাংলাদেশের কৃষিতে খরা ও অকাল বন্যা প্রভাব।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "প্রাকৃতিক দুর্যোগ ধরণ ও তার ব্যবস্থাপনা",
+              "microSkills": [
+                {
+                  "skillId": "geo_disaster_earthquake_hazard_mitigation",
+                  "skillName": "ভূমিকম্প টেকটোনিক রিকটার স্কেল ও সুনামি ঘূর্ণিঝড় সিগন্যাল",
+                  "description": "১০ নম্বর মহাবিপদ সংকেতের মানে ডিকোড করা, নদীভাঙন রোধে প্রশমন পরিকল্পনা এবং সরকারের দুর্যোগ ব্যবস্থাপনা প্রোটোকল।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "সাধারণ বিজ্ঞান",
+      "totalMarks": 15,
+      "topics": [
+        {
+          "topicName": "ভৌত বিজ্ঞান (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "পদার্থের অবস্থা, পরমাণুর গঠন ও এসিড-ক্ষার রসায়ন",
+              "microSkills": [
+                {
+                  "skillId": "sci_phys_atomic_isotopes_radioactivity",
+                  "skillName": "আইসোটোপ, আইসোবার এবং তেজস্ক্রিয় পরমাণুর ক্ষয় সমীকরণ",
+                  "description": "আলফা-বিটা বিকিরণ শক্তি, পরমাণু নিউক্লিয়াস রূপান্তর, এবং ভারী জলের ফিশন উৎপাদন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "sci_phys_acids_bases_salts_ph",
+                  "skillName": "এসিড, ক্ষার এবং পিএইচ (pH) স্কেল গণনা রসায়ন",
+                  "description": "সবল ও দুর্বল অম্লের পার্থক্য, বাফার দ্রবণ সাম্যাবস্থা, এবং লবণ তৈরির প্রশমন বিক্রিয়া।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "easy"
+                }
+              ]
+            },
+            {
+              "subtopicName": "তরঙ্গ, গতি ও আলোকবিজ্ঞান",
+              "microSkills": [
+                {
+                  "skillId": "sci_phys_mirror_refraction_optics",
+                  "skillName": "আলোর প্রতিফলন, প্রতিসরণ ও পূর্ণ অভ্যন্তরীণ প্রতিফলন নীতি",
+                  "description": "অপটিক্যাল ফাইবার কেবলের আলো পরিবহন সূত্র, লেন্সের ক্ষমতা (ডায়োপ্টার) এবং চোখের দৃষ্টিরোগের সমাধান।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "জীব বিজ্ঞান (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "সংবহনতন্ত্র, রক্তচাপ ও উদ্ভিদের পুষ্টি শারীরবৃত্ত",
+              "microSkills": [
+                {
+                  "skillId": "sci_bio_blood_groups_transfusion",
+                  "skillName": "রক্তের গ্রুপ ও আরএইচ (Rh) ফ্যাক্টর বৈপরীত্য সমাধান",
+                  "description": "অ্যান্টিজেন ও অ্যান্টিবডির রিয়্যাকশন চার্ট এবং হার্ট অ্যাটাক-হৃদরোগের করোনারি বাইপাস মেকানিজম।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "ভাইরাস, ব্যাকটেরিয়া ও সালোকসংশ্লেষণ রাসায়নিক চক্র",
+              "microSkills": [
+                {
+                  "skillId": "sci_bio_photosynthesis_calvin_cycle",
+                  "skillName": "সালোকসংশ্লেষণের আলোক বিক্রিয়া ও অন্ধ চক্র সমীকরণ",
+                  "description": "C3 বনাম C4 উদ্ভিদ বিপাক এবং ক্লোরোপ্লাস্টে কার্বন ডাই অক্সাইডের জৈব আত্তীকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "আধুনিক বিজ্ঞান (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "মহাজাগতিক জ্যোতির্বিদ্যা ও কসমোলজি",
+              "microSkills": [
+                {
+                  "skillId": "sci_mod_cosmic_rays_blackhole",
+                  "skillName": "ব্ল্যাক হোল ইভেন্ট হরাইজন ও মহাকর্ষীয় আপাত তত্ত্ব",
+                  "description": "হিগের বোসন ঈশ্বর কণা, কসমিক রে তরঙ্গের কম্পাঙ্ক এবং গোলকীয় বারিমণ্ডলের জোয়ার-ভাটা চলন।",
+                  "examRelevance": "medium",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "রোগজীবাণু, রোগব্যাধি প্রতিরোধ ও ইমিউনাইজেশন",
+              "microSkills": [
+                {
+                  "skillId": "sci_mod_pathogens_vaccines_aids_tb",
+                  "skillName": "ইনফেকশাস ম্যালেরিয়া, পোলিও ও এইডস প্যাথলজি ও টিকার ধরণ",
+                  "description": "অ্যান্টিবায়োটিকের কাজ করার প্রক্রিয়া, বিসিজি পোলিও ভ্যাকসিনের ইমিউনিটি সাড়াদান।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "কম্পিউটার ও তথ্য প্রযুক্তি",
+      "totalMarks": 15,
+      "topics": [
+        {
+          "topicName": "কম্পিউটার প্রযুক্তি (১০ নম্বর)",
+          "weight": 10,
+          "subtopics": [
+            {
+              "subtopicName": "কম্পিউটার অঙ্গসংগঠন ও সিস্টেম আর্কিটেকচার",
+              "microSkills": [
+                {
+                  "skillId": "ict_comp_cpu_cache_ram_alu",
+                  "skillName": "সিপিইউ (CPU) মেমোরি রেজিস্টার এবং ক্যাশ গতি স্তর",
+                  "description": "এসডি-র্যাম, রোমের স্মৃতি হায়ারার্কি, ডেকোডার এএলইউ ম্যাপিং ও বাসের প্রকারভেদ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "ict_comp_number_conversions_signed_complement",
+                  "skillName": "কম্পিউটার ইন্টার কনভার্শনস এবং ২-এর পরিপূরক বিয়োগ",
+                  "description": "হেক্সাডেসিমেল থেকে বাইনারি রূপান্তর ধাঁধা এবং বাইনারি পরিপূরক যোগ বিয়োগ করার মেকানিক্স।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "সিস্টেম ও ডেটাবেইস ম্যানেজমেন্ট",
+              "microSkills": [
+                {
+                  "skillId": "ict_comp_database_keys_cardinality",
+                  "skillName": "রিলেশনাল ডেটাবেস প্রাইমারী কী ও ফরেন কী স্থাপন নিয়ম",
+                  "description": "১:অনেকের কার্ডিনালিটি রিলেশন স্থাপন এবং এসকিউএল সিলেক্ট ও জয়েন অপারেশনের বেসিকস।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "তথ্য প্রযুক্তি (০৫ নম্বর)",
+          "weight": 5,
+          "subtopics": [
+            {
+              "subtopicName": "কম্পিউটার নেটওয়ার্কস ও মোবাইল টেলিকমিউনিকেশন",
+              "microSkills": [
+                {
+                  "skillId": "ict_tech_osi_model_protocols",
+                  "skillName": "OSI মডেলের ৭টি স্তরে প্যাকটিং ও রাউটিং কার্যপ্রণালী",
+                  "description": "টিসিপি/আইপি সুনির্দিষ্ট প্রোটোকল সুইট যেমন HTTP, DNS এবং SMTP অপারেশন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "ict_tech_cellular_frequency_modulation",
+                  "skillName": "২জি থেকে ৫জি সেলুলার নেটওয়ার্ক সিগন্যাল ও ফ্রিকোয়েন্সি তুলনা",
+                  "description": "LTE বনাম OFDM মডুলেশন এবং এলটিই প্রযুক্তির গতি সুবিধা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "ক্লাউড কম্পিউটিং, ক্রিপ্টোগ্রাফি ও ম্যালওয়্যার সিকিউরিটি",
+              "microSkills": [
+                {
+                  "skillId": "ict_tech_cryptography_asymmetric_maldoc",
+                  "skillName": "পাবলিক-প্রাইভেট কী পেয়ার ক্রিপ্টোগ্রাফি ও ফায়ারওয়াল নীতি",
+                  "description": "আরএসএ এনক্রিপশন সিস্টেম, ট্রোজান এবং র‍্যানসমওয়্যার ম্যালওয়্যারের বিস্তার রুখবার কৌশল।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "গাণিতিক যুক্তি",
+      "totalMarks": 20,
+      "topics": [
+        {
+          "topicName": "পাটিগণিত (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "বাস্তব সংখ্যা, লসাগু ও গসাগু",
+              "microSkills": [
+                {
+                  "skillId": "math_num_irrationality_coprimes",
+                  "skillName": "সহ-মৌলিক সংখ্যার জোড়া এবং অমূলদ সংখ্যা প্রমাণ",
+                  "description": "দুটি সংখ্যার গসাগু ১ হলে সহ-মৌলিক হওয়া নির্ণয় করা এবং আবৃত্ত দশমিক পরীক্ষা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "শতকরা, ব্যবসায় অংশীদারিত্ব ও চক্রবৃদ্ধি মুনাফা",
+              "microSkills": [
+                {
+                  "skillId": "math_num_profits_compound_ratios",
+                  "skillName": "সরল এবং চক্রবৃদ্ধি মুনাফার জটিল সমীকরণ জ্যামিতি",
+                  "description": "মুনাফা-আসলের সূত্র P(1+r)^n ব্যবহার করে ৩ বছরের লাভ গণনা করা ও অংশীদারি মূলধন বন্টন।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "বীজগণিত ও সমীকরণ পদ্ধতি (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "বহুপদী উৎপাদক বিশ্লেষণ ও পরম মান অসমতা",
+              "microSkills": [
+                {
+                  "skillId": "math_alg_factorization_polynomial_roots",
+                  "skillName": "ভাগশেষ উপপাদ্য প্রয়োগে ত্রিঘাত বহুপদী উৎপাদক চয়ন",
+                  "description": "x^3 - 7x^2 + 14x - 8 এর মত রাশির উৎপাদকে জটিল রূপ বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "math_alg_absolute_inequalities_domains",
+                  "skillName": "পরমমান যুক্ত অসমতার সংখ্যারেখা ডোমেইন সমাধান",
+                  "description": "|2x - 3| < 5 এর উত্তর সীমা ব্যবধিতে স্থানান্তর করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "সূচক, লগারিদম ও ধারা প্রগতি (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "সূচক ও লগারিদমের ভিত্তি পরিবর্তন সূত্রাবলী",
+              "microSkills": [
+                {
+                  "skillId": "math_exp_logarithms_base_changes",
+                  "skillName": "লগ ভিত্তি বদল সূত্র এবং সূচকীয় রাশির চলক সমীকরণ",
+                  "description": "log_a (b) * log_b (c) = log_a (c) নিয়ম ব্যবহার করে অজানা পদ বের করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "সমান্তর ও গুণোত্তর ধারা পর্যায়ক্রমিক প্রগতি",
+              "microSkills": [
+                {
+                  "skillId": "math_exp_geometric_infinite_sum",
+                  "skillName": "অসীম গুণোত্তর ধারার অভিসারী সমষ্টি নির্ণয় অংক",
+                  "description": "|r| < 1 শর্ত সাপেক্ষে ধারাটির সমষ্টি a / (1 - r) নির্ণয় করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "জ্যামিতি ও পরিমিতি (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "রেখা, ত্রিভুজ ও বৃত্ত সংক্রান্ত উপপাদ্য প্রয়োগ",
+              "microSkills": [
+                {
+                  "skillId": "math_geo_pythagorus_secant_ स्पर्शক",
+                  "skillName": "পিথাগোরাসের প্রয়োগ ও বৃত্তের পরিধিস্থ বৃত্তস্থ কোণ উপপাদ্য",
+                  "description": "কেন্দ্রস্থ কোণ পরিধিস্থ কোণের দ্বিগুণ এবং বৃত্তস্থ চতুর্ভুজের বিপরীত কোণের জোড়া পরিমাপ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "পরিমিতি ঘন তলার মাপ ও গোলক",
+              "microSkills": [
+                {
+                  "skillId": "math_geo_densities_cylinders_spheres",
+                  "skillName": "সিলিন্ডার, শঙ্কুর আয়তন ও ফুটবল ক্ষেত্রফল শতকরা পরিবর্তন",
+                  "description": "ব্যাসার্ধ দ্বিগুণ হলে ঘনবস্তুর আয়তন কত গুণ বাড়ে তা আপেক্ষিক অনুপাত বের করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicName": "সেট, বিন্যাস, সমাবেশ ও সম্ভাব্যতা (০৪ নম্বর)",
+          "weight": 4,
+          "subtopics": [
+            {
+              "subtopicName": "সেট বিন্যাস সমাবেশ",
+              "microSkills": [
+                {
+                  "skillId": "math_stat_permutations_word_repetition",
+                  "skillName": "পুনরাবৃত্তি বিশিষ্ট অক্ষরের বিন্যাস ও কমিটি গঠন সমাবেশ",
+                  "description": "MATHEMATICS শব্দের স্বরবর্ণ স্বাধীন অবস্থানে রেখে শব্দ গঠন বা সাজানোর উপায়ের অংক।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            },
+            {
+              "subtopicName": "পরিসংখ্যান ও সম্ভাব্যতা",
+              "microSkills": [
+                {
+                  "skillId": "math_stat_probabilities_dice_cards",
+                  "skillName": "কন্ডিশনাল প্রোবাবিলিটি ম্যাপিং ও নিরপেক্ষ মুদ্রা নিক্ষেপ",
+                  "description": "দুটি ছক্কা নিক্ষেপে জোড় সংখ্যা পাওয়ার সম্ভাবনা এবং স্বাধীন বিচ্ছিন্ন ঘটনার গুনফলের নিয়ম।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "মানসিক দক্ষতা",
+      "totalMarks": 15,
+      "topics": [
+        {
+          "topicName": "যৌক্তিক বিচার, সমস্যা সমাধান ও ভাষাগত যান্ত্রিক ক্ষমতা (১৫ নম্বর)",
+          "weight": 15,
+          "subtopics": [
+            {
+              "subtopicName": "ভাষাগত যৌক্তিক বিচার ও রক্তের সম্পর্ক",
+              "microSkills": [
+                {
+                  "skillId": "men_verb_blood_relations_trees",
+                  "skillName": "রক্তের সম্পর্কীয় বংশ তালিকা ডিকোডিং ধাঁধা",
+                  "description": "'ক ও খ দুই ভাই' ধাঁধার মত জটিল বিবৃতি সমাধান করে নিখুঁত আত্মীয়তা বের করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "men_verb_coding_decoding_cipher",
+                  "skillName": "বর্ণের স্থানাঙ্ক মান বদল কোডিং ও ডিকোডিং",
+                  "description": "যদি FLOWER সমান UOLVHI হয়, তবে TARGET সমান কত সাইফার সমাধান।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "সমস্যা সমাধান, যান্ত্রিক দক্ষতা ও স্থানাঙ্ক সম্পর্ক",
+              "microSkills": [
+                {
+                  "skillId": "men_space_mirror_clock_angles",
+                  "skillName": "দর্পণে ঘড়ির প্রতিফলিত সময় ও ঘূর্ণন কোণ গণনা",
+                  "description": "বিকেল ৪টা ২০ মিনিটে ঘড়ির ঘন্টার এবং মিনিটের সুঁইয়ের মধ্যবর্তী কোণ পরিমাপের ১০-সেকেন্ড ট্রিক।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                },
+                {
+                  "skillId": "men_space_directions_manuever",
+                  "skillName": "দিক বিন্যাস, ভৌগোলিক অবস্থান ও স্থানাঙ্ক সরণ",
+                  "description": "উত্তরে ৫ কিমি গিয়ে ডানে ঘুরে ৩ কিমি গেলে প্রারম্ভিক বিন্দু থেকে কৌণিক সরল পথ দূরত্ব নির্ণয়।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            },
+            {
+              "subtopicName": "সংখ্যাগত ক্ষমতা ও বানান ভাষা",
+              "microSkills": [
+                {
+                  "skillId": "men_num_series_domino_matrices",
+                  "skillName": "লুপ্ত সংখ্যার ম্যাজিক বর্গধারা ও ডমিনো সিরিজ",
+                  "description": "ফিবোনাচ্চি বা গুণোত্তর সংখ্যার অমিল প্যাটার্ন সনাক্ত করে ফাকা কলাম পূরণ করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subjectName": "নৈতিকতা, মূল্যবোধ ও সু-শাসন",
+      "totalMarks": 15,
+      "topics": [
+        {
+          "topicName": "Definition, Relation & Impact of Values & Good Governance (১৫ নম্বর)",
+          "weight": 15,
+          "subtopics": [
+            {
+              "subtopicName": "সুশাসন ও মূল্যবোধের তাত্ত্বিক কাঠামো ও স্তম্ভসমূহ",
+              "microSkills": [
+                {
+                  "skillId": "eth_gov_pillars_undp_world_bank",
+                  "skillName": "ইউএনডিপি (UNDP) ও বিশ্বব্যাংক ঘোষিত সুশাসনের মূল উপাদান",
+                  "description": "আইনের শাসন, স্বচ্ছতা, জবাবদিহিতা, ও অংশীদারিত্বের সংজ্ঞাগত বৈশিষ্ট্য ও নির্দেশকসমূহ ম্যাচ করা।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "eth_gov_societal_values_national_ideals",
+                  "skillName": "সামাজিক মূল্যবোধ, নৈতিক আদর্শ ও নাগরিক অধিকার সম্পর্ক",
+                  "description": "একজন নাগরিক হিসাবে সুশাসন প্রতিষ্ঠায় মূল্যবোধের প্রয়োজন ও নৈতিকতার উৎসসমূহ সনাক্তকরণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "moderate"
+                },
+                {
+                  "skillId": "eth_gov_impact_deterioration_cost",
+                  "skillName": "দুর্নীতি বিরোধী আইনসমূহ ও সুশাসনের অভাবে সামাজিক ব্যয়",
+                  "description": "রাষ্ট্রীয় জবাবদিহিতার আইন, মানবাধিকার সনদ এবং সুশাসন ও মূল্যবোধের অভাব কীভাবে জাতীয় উন্নয়ন ব্যাহত করে তার ক্ষেত্র বিশ্লেষণ।",
+                  "examRelevance": "high",
+                  "difficultyLevel": "hard"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

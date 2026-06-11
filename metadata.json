@@ -1,0 +1,6 @@
+{
+  "name": "Exam Survival: BCS & Job Challenge",
+  "description": "High-tension survival-style competitive quiz game for BCS, Bank AD, and government exam preparation in Bangladesh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
