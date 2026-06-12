@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as d3 from 'd3';
-import { SessionRecord } from '../utils/sessionHistory.js';
-import { SubjectType } from '../types.js';
+import { SessionRecord } from '../../utils/sessionHistory.js';
+import { SubjectType } from '../../types.js';
 import { Search, RotateCcw, Calendar, TrendingUp } from 'lucide-react';
 
 interface InteractiveTrendsChartProps {

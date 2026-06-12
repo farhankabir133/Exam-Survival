@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { GoogleGenAI, Type } from '@google/genai';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -44,13 +44,172 @@ function getAiClient(): GoogleGenAI {
 }
 
 // ----------------------------------------------------
+// SECURITY MIDDLEWARES & UTILITIES
+// ----------------------------------------------------
+
+interface RateLimitRecord {
+  count: number;
+  resetTime: number;
+}
+const requestLimits = new Map<string, RateLimitRecord>();
+
+function createRateLimiter(limit: number, windowMs: number, errorMessage = "Too many requests. Please slow down.") {
+  return (req: Request, res: Response, next: NextFunction) => {
+    const ip = (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress || 'unknown-ip';
+    const originalUrl = req.originalUrl || '';
+    const key = `${ip}:${originalUrl}`;
+    const now = Date.now();
+
+    const record = requestLimits.get(key);
+    if (!record || now > record.resetTime) {
+      requestLimits.set(key, {
+        count: 1,
+        resetTime: now + windowMs
+      });
+      return next();
+    }
+
+    record.count++;
+    if (record.count > limit) {
+      console.warn(`[RateLimit] Triggered for key ${key}. Blocked request.`);
+      return res.status(429).json({
+        error: errorMessage,
+        retryAfterMs: record.resetTime - now
+      });
+    }
+
+    next();
+  };
+}
+
+function sanitizeString(val: any, maxLength = 150): string {
+  if (typeof val !== 'string') return '';
+  // Strip HTML / script tags
+  const stripped = val.replace(/<\/?[^>]+(>|$)/g, "");
+  return stripped.trim().substring(0, maxLength);
+}
+
+function sanitizeArray(arr: any, maxLength = 100): string[] {
+  if (!Array.isArray(arr)) return [];
+  return arr.map(item => sanitizeString(item, maxLength)).filter(Boolean);
+}
+
+function sanitizeInputs(req: Request, res: Response, next: NextFunction) {
+  if (req.body) {
+    if (req.body.subject) req.body.subject = sanitizeString(req.body.subject, 50);
+    if (req.body.difficulty) req.body.difficulty = sanitizeString(req.body.difficulty, 20);
+    if (req.body.examType) req.body.examType = sanitizeString(req.body.examType, 50);
+    if (req.body.selectedExamType) req.body.selectedExamType = sanitizeString(req.body.selectedExamType, 50);
+    if (req.body.otherSubjectsLanguage) req.body.otherSubjectsLanguage = sanitizeString(req.body.otherSubjectsLanguage, 25);
+    
+    if (req.body.subjects) {
+      req.body.subjects = sanitizeArray(req.body.subjects, 50);
+    }
+  }
+  next();
+}
+
+function validateQuestionArgs(req: Request, res: Response, next: NextFunction) {
+  const { subject, difficulty, examType } = req.body;
+  
+  if (!subject) {
+    return res.status(400).json({ error: "Required parameter 'subject' is missing." });
+  }
+  if (!difficulty || !['Easy', 'Moderate', 'Standard', 'Hard'].includes(difficulty)) {
+    return res.status(400).json({ error: "Required parameter 'difficulty' is missing or invalid. Must be Easy, Moderate, Standard, or Hard." });
+  }
+  if (!examType) {
+    return res.status(400).json({ error: "Required parameter 'examType' is missing." });
+  }
+  next();
+}
+
+function validateBatchArgs(req: Request, res: Response, next: NextFunction) {
+  const { subjects, difficulty, examType, count } = req.body;
+
+  if (subjects !== undefined && (!Array.isArray(subjects) || !subjects.every((s: any) => typeof s === 'string'))) {
+    return res.status(400).json({ error: "Invalid 'subjects' parameter. Must be an array of strings." });
+  }
+  if (!difficulty || !['Easy', 'Moderate', 'Standard', 'Hard'].includes(difficulty)) {
+    return res.status(400).json({ error: "Required parameter 'difficulty' is missing or invalid." });
+  }
+  if (!examType) {
+    return res.status(400).json({ error: "Required parameter 'examType' is missing." });
+  }
+  if (count !== undefined && (typeof count !== 'number' || count <= 0 || count > 50)) {
+    return res.status(400).json({ error: "Invalid 'count' parameter. Must be a positive integer up to 50." });
+  }
+  next();
+}
+
+function validateAnalyseArgs(req: Request, res: Response, next: NextFunction) {
+  const { incorrectQuestions, streak, totalCount, correctCount, averageTimeTakenInSeconds } = req.body;
+
+  if (incorrectQuestions !== undefined && !Array.isArray(incorrectQuestions)) {
+    return res.status(400).json({ error: "Invalid 'incorrectQuestions' parameter. Must be an array." });
+  }
+  if (streak !== undefined && (typeof streak !== 'number' || streak < 0)) {
+    return res.status(400).json({ error: "Invalid 'streak' parameter. Must be non-negative integer." });
+  }
+  if (totalCount !== undefined && (typeof totalCount !== 'number' || totalCount < 0)) {
+    return res.status(400).json({ error: "Invalid 'totalCount' parameter. Must be non-negative integer." });
+  }
+  if (correctCount !== undefined && (typeof correctCount !== 'number' || correctCount < 0)) {
+    return res.status(400).json({ error: "Invalid 'correctCount' parameter. Must be non-negative integer." });
+  }
+  if (averageTimeTakenInSeconds !== undefined && (typeof averageTimeTakenInSeconds !== 'number' || averageTimeTakenInSeconds < 0)) {
+    return res.status(400).json({ error: "Invalid 'averageTimeTakenInSeconds' parameter." });
+  }
+  next();
+}
+
+function verifySessionScore(req: Request, res: Response, next: NextFunction) {
+  const { streak, totalCount, correctCount, averageTimeTakenInSeconds } = req.body;
+
+  if (totalCount === undefined || correctCount === undefined) {
+    return next();
+  }
+
+  const tc = Number(totalCount || 0);
+  const cc = Number(correctCount || 0);
+  const s = Number(streak || 0);
+  const avgTime = Number(averageTimeTakenInSeconds || 0);
+
+  // 1. Math check: Correct count cannot exceed total count
+  if (cc > tc) {
+    console.warn(`[AntiCheat Triggered] Mathematical discrepancy: correctCount ${cc} > totalCount ${tc}`);
+    return res.status(403).json({
+      error: "Integrity check failed: Attempted questions mismatch. Cheat telemetry suspected."
+    });
+  }
+
+  // 2. Math check: Active streak cannot exceed correct answers count
+  if (s > cc) {
+    console.warn(`[AntiCheat Triggered] Mathematical discrepancy: streak ${s} > correctCount ${cc}`);
+    return res.status(403).json({
+      error: "Integrity check failed: Streak values exceed authenticated correct answers."
+    });
+  }
+
+  // 3. Human pace check: Fast bot clickers / macro exploits
+  if (tc >= 3 && avgTime < 0.6) {
+    console.warn(`[AntiCheat Triggered] Impossible execution pace: average speed ${avgTime}s across ${tc} questions.`);
+    return res.status(403).json({
+      error: "Integrity check failed: Dynamic interaction speed is superhuman. Robotic aids/macros are not permitted."
+    });
+  }
+
+  next();
+}
+
+// ----------------------------------------------------
 // API ENDPOINTS
 // ----------------------------------------------------
 
 /**
  * API: Evaluate Weaknesses and suggest tips after a game ends
  */
-app.post('/api/ai-analyse', async (req, res) => {
+app.post('/api/ai-analyse', createRateLimiter(20, 60000), sanitizeInputs, validateAnalyseArgs, verifySessionScore, async (req, res) => {
   try {
     const { incorrectQuestions, streak, selectedExamType, totalCount, correctCount, averageTimeTakenInSeconds } = req.body;
     
@@ -648,9 +807,164 @@ function getFallbackQuestion(subject: string, difficulty: string, examType: stri
 }
 
 /**
+ * Processes generated questions through the systematic recruitment-grade pipeline:
+ * Gemini Generation -> Concept Extraction -> Duplicate Detection -> Coverage Validation -> Difficulty Balancing -> Final Exam Assembly
+ */
+function processQuestionPipeline(
+  rawQuestions: any[],
+  targetSubjects: string[],
+  requestedDifficulty: string,
+  examType: string,
+  count = 12
+): any[] {
+  console.log(`[Pipeline] Core entry. Processing ${rawQuestions.length} raw questions.`);
+
+  // --- Step 1: Gemini Generation ---
+  // The raw questions are either from Gemini or fallback backfills.
+  let pipelineQuestions = [...rawQuestions];
+
+  // If no questions generated or is empty, backfill with default fallbacks
+  if (pipelineQuestions.length === 0) {
+    console.log(`[Pipeline] Empty raw generation. Beginning fallback generation for Gemini Generation step.`);
+    for (let i = 0; i < count; i++) {
+      const sub = targetSubjects[i % targetSubjects.length];
+      pipelineQuestions.push(getFallbackQuestion(sub, requestedDifficulty, examType));
+    }
+  }
+
+  // --- Step 2: Concept Extraction ---
+  console.log(`[Pipeline] Step 2: Concept Extraction activated.`);
+  pipelineQuestions = pipelineQuestions.map(q => {
+    // Standardize and extract structural concepts for educational analytics tracking
+    const topicClean = (q.topic || q.subject || "General Details").trim();
+    const skillNodeClean = (q.skillNode || `${topicClean} core mastery`).trim();
+    const conceptBreakdownClean = (q.conceptBreakdown || q.explanation || "Primary syllabus fact learning node").trim();
+    return {
+      ...q,
+      topic: topicClean,
+      skillNode: skillNodeClean,
+      conceptBreakdown: conceptBreakdownClean
+    };
+  });
+
+  // --- Step 3: Duplicate Detection ---
+  console.log(`[Pipeline] Step 3: Duplicate Detection activated.`);
+  const uniqueQuestions: any[] = [];
+  const seenSignatures = new Set<string>();
+
+  pipelineQuestions.forEach(q => {
+    // Alphanumeric standardizer signature
+    const signature = (q.questionText || "").replace(/[^\w\u0980-\u09FF]/g, "").toLowerCase();
+    if (!signature) {
+      // Empty question text, skip or replace
+      uniqueQuestions.push(getFallbackQuestion(q.subject || targetSubjects[0], q.difficulty || requestedDifficulty, examType));
+    } else if (seenSignatures.has(signature)) {
+      console.log(`[Pipeline] Duplicate question detected: "${q.questionText ? q.questionText.substring(0, 40) : ""}...". Replacing with mutations.`);
+      uniqueQuestions.push(getFallbackQuestion(q.subject || targetSubjects[uniqueQuestions.length % targetSubjects.length], q.difficulty || requestedDifficulty, examType));
+    } else {
+      seenSignatures.add(signature);
+      uniqueQuestions.push(q);
+    }
+  });
+
+  const uniquesCount = uniqueQuestions.length;
+
+  // --- Step 4: Coverage Validation ---
+  console.log(`[Pipeline] Step 4: Coverage Validation activated.`);
+  const representedSubjects = new Set(uniqueQuestions.map(q => q.subject));
+  const missingSubjects = targetSubjects.filter(sub => !representedSubjects.has(sub));
+
+  if (missingSubjects.length > 0) {
+    console.log(`[Pipeline] Missing subjects in coverage: ${JSON.stringify(missingSubjects)}. Restructuring candidates...`);
+    missingSubjects.forEach(missingSub => {
+      // Find a subject with extra representation to swap out
+      const subjectCounts: Record<string, number> = {};
+      uniqueQuestions.forEach(q => {
+        subjectCounts[q.subject] = (subjectCounts[q.subject] || 0) + 1;
+      });
+
+      const replaceableIndex = uniqueQuestions.findIndex(q => (subjectCounts[q.subject] || 0) > 1);
+      if (replaceableIndex !== -1) {
+        console.log(`[Pipeline] Swapping redundant subject "${uniqueQuestions[replaceableIndex].subject}" with missing subject "${missingSub}"`);
+        uniqueQuestions[replaceableIndex] = getFallbackQuestion(missingSub, requestedDifficulty, examType);
+      } else {
+        uniqueQuestions.push(getFallbackQuestion(missingSub, requestedDifficulty, examType));
+      }
+    });
+  }
+
+  // --- Step 5: Difficulty Balancing ---
+  console.log(`[Pipeline] Step 5: Difficulty Balancing activated.`);
+  uniqueQuestions.forEach((q, idx) => {
+    if (requestedDifficulty && requestedDifficulty !== "Standard") {
+      q.difficulty = requestedDifficulty;
+    } else {
+      // Distribute Easy / Standard / Moderate / Hard for realistic exam feel
+      if (idx % 3 === 0) {
+        q.difficulty = "Easy";
+      } else if (idx % 3 === 1) {
+        q.difficulty = "Standard";
+      } else {
+        q.difficulty = "Moderate";
+      }
+      
+      // Inject analytical Hard tasks at the middle and end indices of the exam set
+      if (idx === uniquesCount - 1 || idx === Math.floor(uniquesCount / 2)) {
+        q.difficulty = "Hard";
+      }
+    }
+  });
+
+  // --- Step 6: Final Exam Assembly ---
+  console.log(`[Pipeline] Step 6: Final Exam Assembly activated.`);
+  const assembledQuestions = uniqueQuestions.map((q, idx) => {
+    let opts = Array.isArray(q.options) ? [...q.options] : ["A) option 1", "B) option 2", "C) option 3", "D) option 4"];
+    if (opts.length < 4) {
+      while (opts.length < 4) {
+        opts.push(`Option ${String.fromCharCode(65 + opts.length)}`);
+      }
+    } else if (opts.length > 4) {
+      opts = opts.slice(0, 4);
+    }
+
+    const prefixes = ["A) ", "B) ", "C) ", "D) "];
+    opts = opts.map((opt, i) => {
+      const optionStr = String(opt).trim();
+      const cleanOpt = optionStr.replace(/^[A-D]\)?\s*[-.:]?\s*/i, "");
+      return prefixes[i] + cleanOpt;
+    });
+
+    const correctIdx = typeof q.correctAnswerIndex === 'number' && q.correctAnswerIndex >= 0 && q.correctAnswerIndex < 4 
+      ? q.correctAnswerIndex 
+      : 0;
+
+    return {
+      id: `ai_gen_pipeline_${Math.random().toString(36).substr(2, 9)}_${idx}`,
+      subject: q.subject || targetSubjects[idx % targetSubjects.length],
+      topic: q.topic || "Syllabus Topic",
+      difficulty: q.difficulty || "Standard",
+      examType: Array.isArray(q.examType) ? q.examType : [examType || "BCS"],
+      questionText: q.questionText || "Question statement here",
+      options: opts,
+      correctAnswerIndex: correctIdx,
+      explanation: q.explanation || "Answer key explanation detail",
+      skillNode: q.skillNode || "Core competence area",
+      errorType: q.errorType || "concept misunderstandings",
+      correctReasoning: q.correctReasoning || "Reasoning for the correct response",
+      wrongReasoning: q.wrongReasoning || "Reasoning for distractors",
+      conceptBreakdown: q.conceptBreakdown || "Topic concepts details",
+      shortcutMethod: q.shortcutMethod || "Mnemonic or shortcut rule"
+    };
+  });
+
+  // Limit exactly to count
+  return assembledQuestions.slice(0, count);
+}
+
+/**
  * API: Generate multiple authentic quiz questions dynamically in a batch
  */
-app.post('/api/generate-ai-batch', async (req, res) => {
+app.post('/api/generate-ai-batch', createRateLimiter(30, 60000), sanitizeInputs, validateBatchArgs, async (req, res) => {
   const { subjects, difficulty, examType, otherSubjectsLanguage = 'Bangla', count = 12 } = req.body;
   const targetSubjects = Array.isArray(subjects) && subjects.length > 0 ? subjects : ['Mathematics', 'English', 'Bangla', 'ICT'];
 
@@ -662,7 +976,8 @@ app.post('/api/generate-ai-batch', async (req, res) => {
       const sub = targetSubjects[i % targetSubjects.length];
       fallbackBatch.push(getFallbackQuestion(sub, difficulty, examType));
     }
-    return res.json({ questions: fallbackBatch, isFallback: true });
+    const processedFallbacks = processQuestionPipeline(fallbackBatch, targetSubjects, difficulty, examType, count);
+    return res.json({ questions: processedFallbacks, isFallback: true });
   }
 
   try {
@@ -738,13 +1053,8 @@ app.post('/api/generate-ai-batch', async (req, res) => {
     const parsed = JSON.parse(response.text || '{"questions":[]}');
     const questionsList = Array.isArray(parsed.questions) ? parsed.questions : [];
     
-    // Assign random unique IDs
-    const finalizedQuestions = questionsList.map((q: any) => {
-      q.id = `ai_gen_${Math.random().toString(36).substr(2, 9)}`;
-      q.examType = [examType || 'BCS'];
-      return q;
-    });
-
+    // Server-Side zero bleed and strict pipeline integration
+    const finalizedQuestions = processQuestionPipeline(questionsList, targetSubjects, difficulty, examType, count);
     return res.json({ questions: finalizedQuestions });
   } catch (error: any) {
     console.error("[api/generate-ai-batch Error] Fallback triggered:", error.message || error);
@@ -754,21 +1064,23 @@ app.post('/api/generate-ai-batch', async (req, res) => {
       const sub = targetSubjects[i % targetSubjects.length];
       fallbackBatch.push(getFallbackQuestion(sub, difficulty, examType));
     }
-    return res.json({ questions: fallbackBatch, isFallback: true });
+    const processedFallbacks = processQuestionPipeline(fallbackBatch, targetSubjects, difficulty, examType, count);
+    return res.json({ questions: processedFallbacks, isFallback: true });
   }
 });
 
 /**
  * API: Generate an authentic quiz question dynamically
  */
-app.post('/api/generate-ai-question', async (req, res) => {
+app.post('/api/generate-ai-question', createRateLimiter(60, 60000), sanitizeInputs, validateQuestionArgs, async (req, res) => {
   const { subject, difficulty, examType } = req.body;
 
   // Fallback immediately if API key is not configured
   if (!apiKey) {
     console.log("[server] Key missing. Serving procedural static fallback question.");
     const fallbackQ = getFallbackQuestion(subject, difficulty, examType);
-    return res.json(fallbackQ);
+    const processed = processQuestionPipeline([fallbackQ], [subject], difficulty || "Standard", examType || "BCS", 1);
+    return res.json(processed[0]);
   }
 
   try {
@@ -824,14 +1136,23 @@ app.post('/api/generate-ai-question', async (req, res) => {
     });
 
     const questionObj = JSON.parse(response.text || '{}');
-    questionObj.id = `ai_gen_${Math.random().toString(36).substr(2, 9)}`;
-    questionObj.examType = [examType || 'BCS'];
-    return res.json(questionObj);
+    
+    // Server-Side Zero Bleed Rule Reinforcement
+    if (!questionObj || !questionObj.subject || questionObj.subject !== subject) {
+      console.warn(`[ZeroBleedRule] Single question bleed or corrupted response prevented: expected "${subject}", got "${questionObj?.subject}". Serving fallback.`);
+      const fallbackQ = getFallbackQuestion(subject, difficulty, examType);
+      const processed = processQuestionPipeline([fallbackQ], [subject], difficulty || "Standard", examType || "BCS", 1);
+      return res.json(processed[0]);
+    }
+
+    const processed = processQuestionPipeline([questionObj], [subject], difficulty || "Standard", examType || "BCS", 1);
+    return res.json(processed[0]);
   } catch (error: any) {
     console.error("[api/generate-ai-question Error] Recovery strategy activated. Error details:", error.message || error);
     // Graceful recovery: Serve an elite procedurally generated or selected offline fallback question so the user game never breaks!
     const fallbackQ = getFallbackQuestion(subject, difficulty, examType);
-    return res.json(fallbackQ);
+    const processed = processQuestionPipeline([fallbackQ], [subject], difficulty || "Standard", examType || "BCS", 1);
+    return res.json(processed[0]);
   }
 });
 

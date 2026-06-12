@@ -85,3 +85,58 @@ export interface AIAnalysisResponse {
   reactionTimeSuitability?: 'Fast Recall' | 'Slow Analytical' | 'Erratic Speed Rider' | 'Steady Thinker';
   estimatedConfidencePercent?: number;
 }
+
+/**
+ * ----------------------------------------------------
+ * PERSISTENT DATABASE SCHEMAS
+ * ----------------------------------------------------
+ */
+
+export interface DbUser {
+  id: string;
+  name: string;
+  email: string;
+  examTarget: string[];
+  currentRank: number;
+  totalGames: number;
+  bestStreak: number;
+  totalScore: number;
+  fastestResponse: number;
+  friends: string[];
+  lastActiveAt: string;
+  createdAt: Date;
+}
+
+export interface DbQuestion {
+  id: string;
+  subject: string;
+  difficulty: number;
+  question: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+  source: string;
+}
+
+export interface DbMatch {
+  id: string;
+  userId: string;
+  mode: string;
+  streak: number;
+  score: number;
+  duration: number; // in seconds
+  result: string;
+}
+
+export interface DbAnalytics {
+  userId: string;
+  subjectStats: any[];
+  weakAreas: string[];
+  strongAreas: string[];
+  trends: any[];
+}
+
+export const ALL_SUBJECTS: SubjectType[] = [
+  'Bangla', 'English', 'Mathematics', 'ICT', 'Bangladesh Affairs', 'International Affairs', 'General Science', 'Mental Ability'
+];
+

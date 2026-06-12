@@ -1,0 +1,98 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 1. Global safety net default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Trans-operational global identity helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // 3. Relational validation blueprints
+    function isValidUser(data) {
+      return data.keys().hasAll(['id', 'name', 'email', 'examTarget', 'currentRank', 'totalGames', 'bestStreak', 'totalScore', 'fastestResponse', 'friends', 'lastActiveAt', 'createdAt'])
+        && data.keys().size() == 12
+        && data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() <= 100
+        && data.email is string && data.email.size() <= 120
+        && data.examTarget is list
+        && data.currentRank is int
+        && data.totalGames is int
+        && data.bestStreak is int
+        && data.totalScore is int
+        && (data.fastestResponse is number || data.fastestResponse is int)
+        && data.friends is list
+        && data.lastActiveAt is string;
+    }
+
+    function isValidMatch(data) {
+      return data.keys().hasAll(['id', 'userId', 'mode', 'streak', 'score', 'duration', 'result'])
+        && data.keys().size() == 7
+        && data.id is string && data.id.size() <= 128
+        && data.userId == request.auth.uid
+        && data.mode is string && data.mode.size() <= 50
+        && data.streak is int
+        && data.score is int
+        && data.duration is int
+        && data.result is string && data.result.size() <= 100;
+    }
+
+    function isValidAnalytics(data) {
+      return data.keys().hasAll(['userId', 'subjectStats', 'weakAreas', 'strongAreas', 'trends'])
+        && data.keys().size() == 5
+        && data.userId == request.auth.uid
+        && data.subjectStats is list
+        && data.weakAreas is list
+        && data.strongAreas is list
+        && data.trends is list;
+    }
+
+    // 4. Secure collection-specific match blocks
+    match /users/{userId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+      allow create: if isOwner(userId) && isValidUser(incoming());
+      allow update: if isOwner(userId) && isValidUser(incoming())
+        && incoming().id == existing().id
+        && incoming().email == existing().email;
+    }
+
+    match /questions/{questionId} {
+      allow get: if isSignedIn();
+      allow list: if isSignedIn();
+    }
+
+    match /matches/{matchId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && incoming().userId == request.auth.uid && isValidMatch(incoming());
+      allow update: if isSignedIn() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidMatch(incoming());
+    }
+
+    match /analytics/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidAnalytics(incoming());
+      allow update: if isOwner(userId) && isValidAnalytics(incoming());
+    }
+  }
+}

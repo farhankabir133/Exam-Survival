@@ -1,0 +1,86 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered competitive candidate preparing for BCS and banking exam survival runs.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier of the candidate" },
+        "name": { "type": "string", "description": "Display name of the user" },
+        "email": { "type": "string", "format": "email", "description": "Candidate email address" },
+        "examTarget": { "type": "array", "items": { "type": "string" }, "description": "List of targeted exams e.g. BCS, Bank AD" },
+        "currentRank": { "type": "integer", "description": "Current leaderboard percentile rank" },
+        "totalGames": { "type": "integer", "description": "Total survival game matching sequences registered" },
+        "bestStreak": { "type": "integer", "description": "Highest correct answer sequence record achieved" },
+        "totalScore": { "type": "integer", "description": "Accumulated overall experience points of the player" },
+        "fastestResponse": { "type": "number", "description": "Single fastest correct response time in seconds" },
+        "friends": { "type": "array", "items": { "type": "string" }, "description": "Identities of tracked friends" },
+        "lastActiveAt": { "type": "string", "description": "ISO string format of last game completion or update" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Registration epoch timestamp" }
+      },
+      "required": ["id", "name", "email", "examTarget", "currentRank", "totalGames", "bestStreak", "totalScore", "fastestResponse", "friends", "lastActiveAt", "createdAt"]
+    },
+    "Question": {
+      "title": "Question",
+      "description": "An individual syllabus question from Bangladesh Public Service guidelines or banking criteria.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique database ID of the question" },
+        "subject": { "type": "string", "description": "Subject category e.g. Bangla, English, Mathematics" },
+        "difficulty": { "type": "integer", "description": "Complexity slider rating e.g., 1 to 4 scaling difficulty" },
+        "question": { "type": "string", "description": "Question body content text" },
+        "options": { "type": "array", "items": { "type": "string" }, "description": "List of four possible distractor options" },
+        "answer": { "type": "string", "description": "Exactly matching literal string of correct response" },
+        "explanation": { "type": "string", "description": "Syllabus contextual verification explanation" },
+        "source": { "type": "string", "description": "Standard historical reference e.g. 43rd BCS preliminary" }
+      },
+      "required": ["id", "subject", "difficulty", "question", "options", "answer", "explanation", "source"]
+    },
+    "Match": {
+      "title": "Match",
+      "description": "High-tension survival game session telemetry record.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique match tracking code" },
+        "userId": { "type": "string", "description": "Reference of the candidate user" },
+        "mode": { "type": "string", "description": "Survival mode variant e.g. Survival, Speed, PVP" },
+        "streak": { "type": "integer", "description": "End correct-answer streak achieved" },
+        "score": { "type": "integer", "description": "Calculated score points" },
+        "duration": { "type": "integer", "description": "Total elapsed seconds during the matching cycle" },
+        "result": { "type": "string", "description": "Concluding status of the run" }
+      },
+      "required": ["id", "userId", "mode", "streak", "score", "duration", "result"]
+    },
+    "Analytics": {
+      "title": "Analytics",
+      "description": "Aggregated cognitive metrics, weakness tracks, and training directions.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Candidate reference ID" },
+        "subjectStats": { "type": "array", "description": "Chronological performance data per syllabus topic" },
+        "weakAreas": { "type": "array", "items": { "type": "string" }, "description": "Categorized weaker subtopics" },
+        "strongAreas": { "type": "array", "items": { "type": "string" }, "description": "Categorized stronger subtopics" },
+        "trends": { "type": "array", "description": "Accuracy trend tracking history logs" }
+      },
+      "required": ["userId", "subjectStats", "weakAreas", "strongAreas", "trends"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Candidate demographic profiles and persistent state metrics."
+    },
+    "/questions/{questionId}": {
+      "schema": "Question",
+      "description": "Database pool of curriculum-aligned MCQs."
+    },
+    "/matches/{matchId}": {
+      "schema": "Match",
+      "description": "Historic matches and competitive play outcomes."
+    },
+    "/analytics/{userId}": {
+      "schema": "Analytics",
+      "description": "User analytical evaluation states."
+    }
+  }
+}
